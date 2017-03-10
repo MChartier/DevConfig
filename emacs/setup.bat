@@ -1,0 +1,1 @@
+copy .\.emacs %AppData%\.emacs
