@@ -1,0 +1,7 @@
+[user]
+	name = Matthew Chartier
+	email = mchartier@outlook.com
+[core]
+	editor = code
+[alias]
+    lg = log --oneline --decorate
