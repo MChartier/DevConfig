@@ -2,6 +2,6 @@
 	name = Matthew Chartier
 	email = mchartier@outlook.com
 [core]
-	editor = code
+	editor = code --wait
 [alias]
     lg = log --oneline --decorate
