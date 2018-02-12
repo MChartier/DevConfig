@@ -4,4 +4,20 @@
 [core]
 	editor = code --wait
 [alias]
-    lg = log --oneline --decorate
+	lg = log --oneline --decorate -20
+[remote "origin"]
+	prune = true
+
+# Configure Visual Studio Code as the default difftool
+[diff]
+	tool = vscode
+[difftool]
+	prompt = false
+[difftool "vscode"]
+	cmd = "code --wait --diff $LOCAL $REMOTE"
+
+# Configure Visual Studio Code as the default mergetool
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = "code --wait $MERGED"
