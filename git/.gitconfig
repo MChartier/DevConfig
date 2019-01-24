@@ -3,8 +3,12 @@
 	email = mchartier@outlook.com
 [core]
 	editor = code --wait
+
 [alias]
 	lg = log --oneline --decorate -20
+[alias]
+	recent = for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short) (%(color:green)%(committerdate:relative)%(color:reset)) %(committerdate:short)'
+
 [remote "origin"]
 	prune = true
 
@@ -15,9 +19,3 @@
 	prompt = false
 [difftool "vscode"]
 	cmd = "code --wait --diff $LOCAL $REMOTE"
-
-# Configure Visual Studio Code as the default mergetool
-[merge]
-	tool = vscode
-[mergetool "vscode"]
-	cmd = "code --wait $MERGED"
