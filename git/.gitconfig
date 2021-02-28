@@ -5,7 +5,7 @@
 	editor = code --wait
 
 [alias]
-	lg = log --oneline --decorate -20
+	lg = log --oneline --decorate -10
 [alias]
 	recent = for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short) (%(color:green)%(committerdate:relative)%(color:reset)) %(committerdate:short)'
 
