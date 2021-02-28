@@ -5,6 +5,8 @@
 # Set up new Linux environment.
 #
 
+readonly DOTNET_SDK_VERSIONS=(3.1 5.0)
+
 if (( EUID != 0 )); then
     echo "This script must be run as root." 1>&2
     exit 1
@@ -50,10 +52,28 @@ cp ./emacs/.emacs ~/.emacs
 cp ./git/.gitconfig ~/.gitconfig
 
 #
-# Install dotnet SDK
+# Install dotnet SDKs
 #
 wget https://packages.microsoft.com/config/ubuntu/20.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 dpkg -i packages-microsoft-prod.deb && apt update
 rm ./packages-microsoft-prod.deb
 apt install -y apt-transport-https && apt update
-apt install -y dotnet-sdk-3.1 dotnet-sdk-5.0
+for v in ${DOTNET_SDK_VERSIONS[@]}; do
+    apt install -y dotnet-sdk-$v
+done
+
+#
+# Install NVM and latest LTS Node.js SDK
+# https://github.com/nvm-sh/nvm#install--update-script
+#
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+
+# This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  
+
+# This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  
+
+nvm install --lts
