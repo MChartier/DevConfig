@@ -11,11 +11,3 @@
 
 [remote "origin"]
 	prune = true
-
-# Configure Visual Studio Code as the default difftool
-[diff]
-	tool = vscode
-[difftool]
-	prompt = false
-[difftool "vscode"]
-	cmd = "code --wait --diff $LOCAL $REMOTE"
