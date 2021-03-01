@@ -15,6 +15,9 @@ fi
 # Upgrade system packages
 apt update && apt upgrade
 
+# Install common tools
+apt install make
+
 #
 # Install 'Oh my Posh'
 # https://ohmyposh.dev/docs/installation
